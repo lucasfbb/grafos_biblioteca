@@ -1,0 +1,29 @@
+--------------INFORMACOES DO GRAFO--------------
+
+Quantidade de vertices: 5
+Quantidade de arestas: 5
+Grau medio: 2.0
+1 0.4
+2 0.4
+3 0.0
+4 0.2
+
+--------------BUSCA POR PROFUNDIDADE--------------
+
+Vertice: 2 -> Nivel: 0 | Pai: Nenhum 
+Vertice: 1 -> Nivel: 1 | Pai: 2 
+Vertice: 5 -> Nivel: 2 | Pai: 1 
+Vertice: 3 -> Nivel: 3 | Pai: 5 
+Vertice: 4 -> Nivel: 3 | Pai: 5 
+
+ 2 -> 1 -> 5 -> 3 -> 4 
+
+--------------BUSCA POR LARGURA--------------
+
+Vertice: 1 -> Nivel: 0 | Pai: Nenhum
+Vertice: 2 -> Nivel: 1 | Pai: 1
+Vertice: 5 -> Nivel: 2 | Pai: 2
+Vertice: 3 -> Nivel: 3 | Pai: 5
+Vertice: 4 -> Nivel: 3 | Pai: 5
+
+1 -> 2 -> 5 -> 3 -> 4

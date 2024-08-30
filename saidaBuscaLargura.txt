@@ -1,0 +1,14 @@
+Vertice: 4 -> Nivel: 0 | Pai: Nenhum
+Vertice: 5 -> Nivel: 1 | Pai: 4
+Vertice: 1 -> Nivel: 2 | Pai: 5
+Vertice: 2 -> Nivel: 3 | Pai: 1
+Vertice: 3 -> Nivel: 2 | Pai: 5
+
+4 -> 5 -> 1 -> 2 -> 3--------------BUSCA POR LARGURA--------------
+Vertice: 4 -> Nivel: 0 | Pai: Nenhum
+Vertice: 5 -> Nivel: 1 | Pai: 4
+Vertice: 1 -> Nivel: 2 | Pai: 5
+Vertice: 2 -> Nivel: 3 | Pai: 1
+Vertice: 3 -> Nivel: 2 | Pai: 5
+
+4 -> 5 -> 1 -> 2 -> 3
