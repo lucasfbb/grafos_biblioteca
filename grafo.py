@@ -65,7 +65,7 @@ class Grafo:
                     self.matriz_adjacencia[vertice1-1][vertice2-1] = 1
                     self.matriz_adjacencia[vertice2-1][vertice1-1] = 1
 
-        print(self.grafo)
+        # print(self.grafo)
 
     def informacoes(self):
         """
@@ -555,7 +555,7 @@ def main():
     # grafo.calcular_caminho_minimo(1)
     # grafo.calcular_caminho_minimo(1,4)
     # grafo.representacao()
-    # grafo.informacoes()
+    grafo.informacoes()
     # grafo.busca_profundidade(2)
     # grafo.busca_largura(1)
     # grafo.encontrar_componentes_conexos()
