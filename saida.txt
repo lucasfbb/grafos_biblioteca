@@ -27,3 +27,4 @@ Vertice: 3 -> Nivel: 3 | Pai: 5
 Vertice: 4 -> Nivel: 3 | Pai: 5
 
 1 -> 2 -> 5 -> 3 -> 4
+
