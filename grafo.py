@@ -95,10 +95,16 @@ class Grafo:
             for linha in arquivo:
                 contagem_arestas+=1
                 numeros = linha.split()
-                for numero in numeros:
-                    numero = int(numero)  # Converte para inteiro
-                    contagem_numeros[numero] += 1  # Incrementa a contagem para esse número
-            
+
+                if len(numeros) == 3:
+                    for numero in numeros[:-1]:  # Ignora o último número
+                        numero = int(numero)  # Converte para inteiro
+                        contagem_numeros[numero] += 1  # Incrementa a contagem para esse número
+                else:
+                    for numero in numeros:
+                        numero = int(numero)  # Converte para inteiro
+                        contagem_numeros[numero] += 1  # Incrementa a contagem para esse número
+                    
             mensagem += f"Quantidade de arestas: {contagem_arestas}\n"
 
             # Exibe o número de ocorrências de cada número
@@ -151,8 +157,8 @@ class Grafo:
                     break  
                 else:
                     print("Opção inválida! Por favor, digite 1 ou 2.")
-            except ValueError:
-                print("Entrada inválida! Por favor, insira um número.")
+            except ValueError as e:
+                print(f"Erro de valor: {e}")
 
     def rep_matriz(self):
         """
@@ -186,8 +192,13 @@ class Grafo:
                     
                 relacionamento_numeros[f'{vertice1}'] += f'-> {vertice2}'
                 relacionamento_numeros[f'{vertice2}'] += f'-> {vertice1}'
-                for numero in numeros:
-                    numeros_unicos.add(int(numero)) 
+                
+                if len(numeros) == 3:
+                    for numero in numeros[:-1]:
+                        numeros_unicos.add(int(numero)) 
+                else:
+                    for numero in numeros:
+                        numeros_unicos.add(int(numero)) 
 
             for numero_unico in numeros_unicos:
                 lista_adjacencia += f'{numero_unico}{relacionamento_numeros[f'{numero_unico}']}\n'
@@ -554,7 +565,7 @@ def main():
 
     # grafo.calcular_caminho_minimo(1)
     # grafo.calcular_caminho_minimo(1,4)
-    # grafo.representacao()
+    grafo.representacao()
     grafo.informacoes()
     # grafo.busca_profundidade(2)
     # grafo.busca_largura(1)
