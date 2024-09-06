@@ -192,7 +192,7 @@ class Grafo:
                     
                 relacionamento_numeros[f'{vertice1}'] += f'-> {vertice2}'
                 relacionamento_numeros[f'{vertice2}'] += f'-> {vertice1}'
-                
+
                 if len(numeros) == 3:
                     for numero in numeros[:-1]:
                         numeros_unicos.add(int(numero)) 
@@ -412,9 +412,14 @@ class Grafo:
 
         caminho = []
         atual = destino
-        while atual is not None:
-            caminho.insert(0, atual)
-            atual = antecessor[atual]
+        if distancias[destino] != sys.maxsize:
+            while atual is not None:
+                caminho.insert(0, atual)
+                atual = antecessor[atual]
+            print(f"Caminho mínimo de {origem} para {destino} usando Dijkstra: {caminho}")
+            print(f"Distância: {distancias[destino]}")
+        else:
+            print(f"{destino} não é acessível a partir de {origem}")
 
     def _calcular_bfs_para_todos(self, origem):
         # Implementação de BFS para todos os vértices
@@ -533,11 +538,12 @@ class Grafo:
         Calcula o caminho mínimo do vértice 1 para o vértice 4.
 
         """
-
+        
         if destino is None:
+            
             # Se apenas o parâmetro `origem` foi passado, calcular caminhos mínimos de `origem` para todos os vértices
             if self.tem_pesos_negativos():
-                print("Erro: O algoritmo de Dijkstra não pode ser usado com pesos negativos.")
+                print("Erro: O grafo possui pesos, porém o algoritmo de Dijkstra não pode ser usado com pesos negativos.")
                 return
 
             if all(peso == 1 for adj in self.grafo.values() for peso in adj.values()):
@@ -547,9 +553,10 @@ class Grafo:
                 # Caso contrário, use Dijkstra
                 return self._calcular_dijkstra_para_todos(origem)
         else:
+            
             # Se `origem` e `destino` foram passados, calcular caminho mínimo entre esses dois vértices
             if self.tem_pesos_negativos():
-                print("Erro: O algoritmo de Dijkstra não pode ser usado com pesos negativos.")
+                print("Erro: O grafo possui pesos, porém o algoritmo de Dijkstra não pode ser usado com pesos negativos.")
                 return
 
             if all(peso == 1 for adj in self.grafo.values() for peso in adj.values()):
@@ -563,9 +570,9 @@ def main():
    
     grafo = Grafo()
 
-    # grafo.calcular_caminho_minimo(1)
+    grafo.calcular_caminho_minimo(0)
     # grafo.calcular_caminho_minimo(1,4)
-    grafo.representacao()
+    # grafo.representacao()
     grafo.informacoes()
     # grafo.busca_profundidade(2)
     # grafo.busca_largura(1)
