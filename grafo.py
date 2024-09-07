@@ -324,23 +324,25 @@ class Grafo:
         componentes = []
         componentes_contagem = {}
         
+        # Realiza a DFS para encontrar todos os componentes conexos
         for v in self.grafo:
             if not visitado[v]:
                 componente_atual = []
                 self._dfs_componente(v, visitado, componente_atual)
                 componentes.append(componente_atual)
         
-        print(f"\nNúmero de componentes conexos do grafo: {len(componentes)}" )
+        print(f"\nNúmero de componentes conexos do grafo: {len(componentes)}")
+
+        # Preenche o dicionário de contagem de componentes
         for i, componente in enumerate(componentes):
             tamanho_componente = len(componente)
-            componentes_contagem[i + 1] = tamanho_componente 
+            componentes_contagem[i + 1] = tamanho_componente  # Associa o componente ao seu tamanho
 
-        # Ordenar os componentes de forma descrescente pelo número de vértices
-        componentes_contagem = dict(sorted(componentes_contagem.items(), key=lambda item: item[1], reverse=True)) 
-
+        # Imprime cada componente e seu respectivo tamanho
         for i, componente in enumerate(componentes):
-            for contagem in componentes_contagem.values():
-                print(f"Componente {i + 1} -> Lista de vértices: {componente} | Tamanho: {contagem}")
+            tamanho_componente = componentes_contagem[i + 1]
+            print(f"Componente {i + 1} -> Lista de vértices: {componente} | Tamanho: {tamanho_componente}")
+        
         print('')
 
     def tem_pesos_negativos(self):
@@ -570,13 +572,13 @@ def main():
    
     grafo = Grafo()
 
-    grafo.calcular_caminho_minimo(0)
+    # grafo.calcular_caminho_minimo(0)
     # grafo.calcular_caminho_minimo(1,4)
     # grafo.representacao()
     grafo.informacoes()
     # grafo.busca_profundidade(2)
     # grafo.busca_largura(1)
-    # grafo.encontrar_componentes_conexos()
+    grafo.encontrar_componentes_conexos()
 
 
 if __name__ == "__main__":
