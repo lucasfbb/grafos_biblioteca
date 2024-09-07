@@ -65,8 +65,6 @@ class Grafo:
                     self.matriz_adjacencia[vertice1-1][vertice2-1] = 1
                     self.matriz_adjacencia[vertice2-1][vertice1-1] = 1
 
-        # print(self.grafo)
-
     def informacoes(self):
         """
         Gera informações sobre o grafo, como a quantidade de vértices, arestas e grau médio.
@@ -167,7 +165,12 @@ class Grafo:
         A matriz de adjacência é impressa no console, mostrando as conexões entre os vértices.
         """
         print('==================== RESULTADO =========================\n')        
-        return print(f'Matriz de adjacencia: \n\n{self.matriz_adjacencia}\n')
+        print('Matriz de adjacência:\n')
+        
+        # Itera sobre as linhas da matriz e imprime cada uma delas
+        for linha in self.matriz_adjacencia:
+            print(' '.join(map(str, linha)))
+        print()
     
     def rep_lista(self):
         """
@@ -574,34 +577,13 @@ def main():
 
     # grafo.calcular_caminho_minimo(0)
     # grafo.calcular_caminho_minimo(1,4)
-    # grafo.representacao()
+    grafo.representacao()
     grafo.informacoes()
     # grafo.busca_profundidade(2)
     # grafo.busca_largura(1)
-    grafo.encontrar_componentes_conexos()
+    # grafo.encontrar_componentes_conexos()
 
 
 if __name__ == "__main__":
     main()
-
-
-
-# def desenhar_grafo(matriz_adjacencia):
-#         qtdVertices = len(matriz_adjacencia)
-
-#         # Para cada vértice, verificamos suas conexões
-#         for i in range(qtdVertices):
-#             for j in range(i, qtdVertices):
-#                 if matriz_adjacencia[i][j] == 1:
-#                     # Conexão horizontal
-#                     print(f"{i+1} -- {j+1}")
-        
-#         print("\nRepresentação Completa do Grafo:")
-#         for i in range(qtdVertices):
-#             print(f"{i+1}: ", end="")
-#             for j in range(qtdVertices):
-#                 if matriz_adjacencia[i][j] == 1:
-#                     print(f" {j+1}", end="")
-#             print()
-
 
