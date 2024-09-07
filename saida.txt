@@ -1,9 +1,10 @@
 --------------INFORMACOES DO GRAFO--------------
 
-Quantidade de vertices: 7
+Quantidade de vertices: 5
 Quantidade de arestas: 6
-Grau medio: 1.7142857142857142
-1 0.42857142857142855
-2 0.42857142857142855
-3 0.14285714285714285
+Grau medio: 2.4
+1 0.0
+2 0.8
+3 0.0
+4 0.2
 
